@@ -15,6 +15,7 @@ const login = async (req, res) => {
   res.status(200).json({
     response: "success",
     status: 200,
+    token,
   });
 };
 
