@@ -8,6 +8,11 @@ const partnerDbSchema = Schema(
       required: [true, "Email is required"],
       unique: [true, " Email must be unique"],
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   { versionKey: false, timestamps: true }
 );

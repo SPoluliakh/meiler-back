@@ -3,9 +3,10 @@ const { Partner } = require("../../models/partners");
 const { sendMail } = require("../../helpers");
 
 const register = async (req, res) => {
+  const { _id } = req.user;
   const { email } = req.body;
 
-  const newUser = new Partner({ email });
+  const newUser = new Partner({ email, owner: _id });
 
   const mail = {
     to: email,

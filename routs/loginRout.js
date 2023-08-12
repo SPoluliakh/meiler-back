@@ -3,10 +3,10 @@ const express = require("express");
 const { authControllers: cntr } = require("../controllers");
 const { validation } = require("../middlewars");
 const { cntrlWrap } = require("../helpers");
-const { joiPartnerSchema } = require("../models/partners");
+const { joiLoginSchema } = require("../models/user");
 
-const partnerRouter = express.Router();
+const loginRouter = express.Router();
 
-partnerRouter.post("/", validation(joiPartnerSchema), cntrlWrap(cntr.register));
+loginRouter.post("/login", validation(joiLoginSchema), cntrlWrap(cntr.login));
 
-module.exports = partnerRouter;
+module.exports = loginRouter;
